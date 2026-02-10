@@ -5,8 +5,6 @@ import { MoonLoader } from "react-spinners";
 import useAuth from "../../hooks/useAuth";
 import { myApplicationsPromise } from "../../services/applicationsApi";
 
-
-
 const MyApplications = () => {
 	const { user } = useAuth();
 	return (
@@ -19,7 +17,7 @@ const MyApplications = () => {
 					</div>
 				}>
 				<ApplicationsList
-					myApplicationsPromise={myApplicationsPromise  (user.email)}
+					myApplicationsPromise={myApplicationsPromise(user.email)}
 				/>
 			</Suspense>
 		</div>

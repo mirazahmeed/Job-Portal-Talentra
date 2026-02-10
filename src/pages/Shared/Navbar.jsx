@@ -20,6 +20,7 @@ const Navbar = () => {
 			<li>
 				<NavLink to="/">Home</NavLink>
 			</li>
+			{/* for user */}
 			{user && (
 				<li>
 					<details>
@@ -37,8 +38,24 @@ const Navbar = () => {
 					</details>
 				</li>
 			)}
+			{/* for employer */}
+			{user && (
+				<li>
+					<details>
+						<summary>Your Information</summary>
+						<ul className="p-2 bg-base-100 w-40 z-1">
+							<li>
+								<NavLink to="/addJob">Add Job</NavLink>
+							</li>
+							<li>
+								<NavLink to="/register">Submenu 2</NavLink>
+							</li>
+						</ul>
+					</details>
+				</li>
+			)}
 			<li>
-				<NavLink to="/contact">Item 3</NavLink>
+				<NavLink to="/contact">About</NavLink>
 			</li>
 		</>
 	);

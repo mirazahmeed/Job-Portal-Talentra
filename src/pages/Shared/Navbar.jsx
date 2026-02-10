@@ -5,35 +5,38 @@ import AuthContext from "../../contexts/AuthContext/AuthContext";
 const Navbar = () => {
 	const { user, signOutUser } = use(AuthContext);
 
-    const handleSignOut = () => {
-        signOutUser()
-            .then(() => {
-                console.log("User signed out");
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-
+	const handleSignOut = () => {
+		signOutUser()
+			.then(() => {
+				console.log("User signed out");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	const links = (
 		<>
 			<li>
 				<NavLink to="/">Home</NavLink>
 			</li>
-			<li>
-				<details>
-					<summary>Parent</summary>
-					<ul className="p-2 bg-base-100 w-40 z-1">
-						<li>
-							<NavLink to="/login">Submenu 1</NavLink>
-						</li>
-						<li>
-							<NavLink to="/register">Submenu 2</NavLink>
-						</li>
-					</ul>
-				</details>
-			</li>
+			{user && (
+				<li>
+					<details>
+						<summary>Your Information</summary>
+						<ul className="p-2 bg-base-100 w-40 z-1">
+							<li>
+								<NavLink to="/myApplications">
+									My Applications
+								</NavLink>
+							</li>
+							<li>
+								<NavLink to="/register">Submenu 2</NavLink>
+							</li>
+						</ul>
+					</details>
+				</li>
+			)}
 			<li>
 				<NavLink to="/contact">Item 3</NavLink>
 			</li>
@@ -76,7 +79,9 @@ const Navbar = () => {
 				</div>
 				<div className="navbar-end gap-2">
 					{user ?
-						<button onClick={handleSignOut} className="btn">Sign Out</button>
+						<button onClick={handleSignOut} className="btn">
+							Sign Out
+						</button>
 					:	<>
 							<NavLink to="/register" className="btn">
 								Register

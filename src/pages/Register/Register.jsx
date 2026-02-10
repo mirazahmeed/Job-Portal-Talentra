@@ -9,9 +9,11 @@ const Register = () => {
 	const handleRegister = (e) => {
 		e.preventDefault();
 		const form = e.target;
+		const name = form.name.value;
+		const photoURL = form.photoURL.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
+		console.log(name, photoURL, email, password);
 
 		// create user
 		createUser(email, password)
@@ -37,6 +39,20 @@ const Register = () => {
 							</h1>
 							<form action="" onSubmit={handleRegister}>
 								<fieldset className="fieldset">
+									<label className="label">Name</label>
+									<input
+										type="text"
+										name="name"
+										className="input"
+										placeholder="Name"
+									/>
+									<label className="label">Photo URL</label>
+									<input
+										type="text"
+										name="photoURL"
+										className="input"
+										placeholder="Photo URL"
+									/>
 									<label className="label">Email</label>
 									<input
 										type="email"
@@ -61,7 +77,7 @@ const Register = () => {
 									</button>
 								</fieldset>
 							</form>
-                            <SocialLogin />
+							<SocialLogin />
 						</div>
 					</div>
 				</div>

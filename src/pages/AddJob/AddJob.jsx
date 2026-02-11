@@ -72,14 +72,14 @@ const AddJob = () => {
 						<label className="label">Company Name</label>
 						<input
 							type="text"
-							name="companyName"
+							name="company"
 							className="input"
 							placeholder="Company Name"
 						/>
 						<label className="label">Company Logo URL</label>
 						<input
 							type="url"
-							name="companyLogo"
+							name="company_logo"
 							className="input"
 							placeholder="Company Logo URL"
 						/>

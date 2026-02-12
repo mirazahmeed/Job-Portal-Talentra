@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import register from "../../assets/lotties/register.json";
 import AuthContext from "../../contexts/AuthContext/AuthContext";
 import SocialLogin from "../Shared/SocialLogin";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 	const { createUser } = use(AuthContext);
@@ -19,6 +20,14 @@ const Register = () => {
 		createUser(email, password)
 			.then((result) => {
 				console.log(result.user);
+				// update user profile
+				return updateProfile(result.user, {
+					displayName: name,
+					photoURL: photoURL,
+				});
+			})
+			.then(() => {
+				console.log("User profile updated");
 			})
 			.catch((error) => {
 				console.log(error);

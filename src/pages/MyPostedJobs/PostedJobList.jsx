@@ -14,6 +14,7 @@ const PostedJobList = ({ jobsCreatedByPromise }) => {
 							<th>#</th>
 							<th>Company Name</th>
 							<th>Job Title</th>
+							<th>Total Applications</th>
 							<th>Deadline</th>
 							<th>View Applications</th>
 						</tr>
@@ -25,6 +26,7 @@ const PostedJobList = ({ jobsCreatedByPromise }) => {
 								<th>{index + 1}</th>
 								<td>{job.companyName}</td>
 								<td>{job.jobTitle}</td>
+								<td>{job.totalApplications}</td>
 								<td>{job.applicationDeadline}</td>
 								<td>
 									<Link

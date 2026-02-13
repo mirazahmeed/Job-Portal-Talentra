@@ -48,7 +48,9 @@ const Navbar = () => {
 								<NavLink to="/addJob">Add Job</NavLink>
 							</li>
 							<li>
-								<NavLink to="/myPostedJobs">My Posted Jobs</NavLink>
+								<NavLink to="/myPostedJobs">
+									My Posted Jobs
+								</NavLink>
 							</li>
 						</ul>
 					</details>
@@ -89,7 +91,9 @@ const Navbar = () => {
 							{links}
 						</ul>
 					</div>
-					<a className="btn btn-ghost text-xl">daisyUI</a>
+					<a href="/" className="btn btn-ghost text-xl">
+						Talentra
+					</a>
 				</div>
 				<div className="navbar-center hidden lg:flex">
 					<ul className="menu menu-horizontal px-1">{links}</ul>

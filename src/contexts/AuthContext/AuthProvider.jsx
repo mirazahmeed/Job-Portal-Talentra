@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import AuthContext from "./AuthContext";
 import {
 	createUserWithEmailAndPassword,
@@ -38,7 +39,20 @@ const AuthProvider = ({ children }) => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
 			setLoading(false);
-			console.log("user on state change", currentUser);
+			if (currentUser?.email) {
+				const userData = {
+					email: currentUser.email,
+				};
+				axios
+					.post("http://localhost:3000/jwt", userData)
+					.then((res) => {
+						console.log("token after jwt", res.data);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			}
+			console.log(currentUser);
 		});
 		return () => unsubscribe();
 	}, []);
